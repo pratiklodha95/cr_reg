@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>College Representative Registration</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<script>
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      AutoFill();
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '333400450156052',
+    cookie     : true, 
+    xfbml      : true, 
+    version    : 'v2.2'
+  });
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+  function AutoFill() {
+    FB.api('/me', function(response) {
+    	console.log(response);
+    });
+  }
+	function login(){
+	  	FB.login(function(response) {
+	       statusChangeCallback();
+	     }, {
+	       scope: 'publish_actions, user_likes, email, public_profile, user_friends', 
+	       return_scopes: true,
+	       auth_type: 'rerequest'
+	     });
+	    FB.getLoginStatus(function(response) {
+	      	statusChangeCallback(response);
+	    });
+	}
+
+</script>
+
+	<div class="registration">
+		<button onclick="login()">LOGIN</button>
+		<div id="status"></div>	
+	</div>
+</body>
+</html>
