@@ -2,13 +2,31 @@
 <html>
 <head>
 	<title>College Representative Registration</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<meta name="fragment" content="!"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Mood Indigo 2014-15 - IIT Bombay : Asia's largest cultural festival held in December mumbai concert.">   
+	<meta name="keyword" content="cultural, asia,largest,concert ,festival,livewire, 180 events, competitions">
+	<meta name="author" content="pratik lodha, lodhapratik9@gmail.com"> 
+	<meta property="og:site_name" content="MoodIndigo" /> 
+	<meta property="og:title" content="Mood Indigo" /> 
+	<meta property="og:url" content="https://moodi.org/cr_reg" />
+	<meta property="og:description" content="" />
+	<link rel = "stylesheet" href = "style.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width"/>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script type="text/javascript" src="java.js"></script>
 </head>
 <body>
-	<script>
+  <script>
+  var access_token,fbid;
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
+    access_token=response.authResponse.accessToken;
+  	fbid=response.authResponse.userID;
     if (response.status === 'connected') {
       AutoFill();
     } else if (response.status === 'not_authorized') {
@@ -45,30 +63,199 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-  
+
   function AutoFill() {
     FB.api('/me', function(response) {
-    	console.log(response);
+  	
+      $('.form_wrapper').css({'display':'block'});
+      $('.fblogin_wrapper').css({'display':'none'});
     });
   }
-	function login(){
-	  	FB.login(function(response) {
-	       statusChangeCallback();
-	     }, {
-	       scope: 'publish_actions, user_likes, email, public_profile, user_friends', 
-	       return_scopes: true,
-	       auth_type: 'rerequest'
-	     });
-	    FB.getLoginStatus(function(response) {
-	      	statusChangeCallback(response);
-	    });
-	}
-
-</script>
-
-	<div class="registration">
-		<button onclick="login()">LOGIN</button>
-		<div id="status"></div>	
+  function login(){
+      FB.login(function(response) {
+         statusChangeCallback();
+       }, {
+         scope: 'publish_actions, user_likes, email, public_profile, user_friends', 
+         return_scopes: true,
+         auth_type: 'rerequest'
+       });
+      FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+      });
+  }
+  </script>
+	
+  <div class = "navbar">
+		<div class = "nav_content">
+		<div class = "moodi_img">
+		<img src = "" alt="Mood_Indigo"></div>
+		<div class = "tab"><a href = "#home">Home</a></div>
+		<div class = "tab"><a href = "#about">About</a></div>
+		<div class = "tab"><a href = "#registration">Registration</a></div>
+		<div class = "tab"><a href = "#contact">Contact</a></div>
+		</div>
 	</div>
+	<div id = "home">
+	<div class="crlogo">
+	<img class="cr_logo" src="CRlogounit.png" alt: "Mood Indigo">
+	</div>
+	</div>
+	<div id = "about">
+	<h3>ABOUT</h3>
+	<p>Mood Indigo, IIT Bombay's cultural festival has grown to become Asia's largest college cultural festival. Over the years, it has seen a consistent increase in the footfall and college participation with 1,26,000 students visiting the festival from over 1600 colleges from all over the world in Mood Indigo 2014.<br><br></p>
+	<p>
+		Mood Indigo's CR system plays an integral part in its growth and serves as a major platform for distribution of information. It helps Mood Indigo in providing opportunities to the talented students from colleges all over the country and promoting youth talent. College Representatives will be a key element in fulfilling this vision in Mood Indigo 2015.<br><br>
+	</p>
+	<p>
+		There will be some explanation about Mood Indigo and the CR system. CR system is just a way to reach out to maximum crowd all over the country.
+	</p>
+	<h3 class="incentives">RESPONSIBILITIES OF A CR</h3>
+	<div class="box3">
+	<div class = "img1">
+	<img class = "img3" src = "socialmedia.png" alt = "social_media">
+	</div>
+	<div class="img1_text">
+	1. Social Media:<br>
+	Increasing outreach by sharing posts in relevant college groups.
+	</div></div>
+	<div class="box3">
+	<div class="img1">
+	<img class= "img3" src = "Postericon.png" alt = "posters">
+	</div>
+	<div class="img1_text">
+	2. Putting up posters of Mood Indigo on college notice boards.
+	</div>
+	</div>
+	<div class="box3">
+	<div class="img1">
+	<img class="img3" src = "coordinationicon.png" alt = "team_coordinate">
+	</div>
+	<div class="img1_text">
+	3. Coordinating with Mood Indigo team in organising multicity events.	</div>
+	</div>
+	<h3 class="incentives">INCENTIVES</h3>
+	<div class="box4">
+	<div class="img2">
+	<img class="img4" src="tshirt.png" alt = "tshirt">
+	</div>
+	<div class="img2_text">
+	MI T-shirts
+	</div>
+	</div>
+	<div class="box4">
+	<div class="img2">
+	<img class="img4" src = "coupon.png" alt = "coupon">
+	</div>
+	<div class="img2_text">
+	Vouchers/Coupons
+	</div>
+	</div>
+	<div class="box4">
+	<div class="img2">
+	<img class="img4" src = "award.png" alt = "award">
+	</div>
+	<div class="img2_text">
+	Best CR award
+	</div>
+	</div>
+	<div class="box4">
+	<div class="img2">
+	<img class="img4" src = "certi.png" alt = "certificate">
+	</div>
+	<div class="img2_text">
+	Certificates
+	</div>
+	</div>
+	</div>
+	<div id="reg_back">
+	  <div id="registration">
+      <h3>REGISTRATION</h3>
+      <div class="fblogin_wrapper">
+        <button onclick="login()"><img src="loginwithfb.png"></button>
+        <div id="status"></div> 
+      </div>
+      <div class="form_wrapper" style="display:none;">
+    		<div class="name">
+    		Name:
+    		<input class="name_in" type = "text">
+    		</div>
+    		<div class="email">
+    		Email ID:
+    		<input class="email_in" type = "text">
+    		</div>
+    		<div class="phone">
+    		Phone No:
+    		<input class="phone_in" type = "number">
+    		</div>
+    		<div class="college">
+    		College:
+    		<input class="college_in" type = "text">
+    		</div>
+    		<div class="city">
+    		City:
+    		<select class="citydrop">
+    			<option value="0">CITY</option>
+    		</select>
+    		</div>
+    		<div class="year">
+    		Year of Study:
+    		<select class="yeardrop">
+    			<option value="first">First</option>
+    			<option value="second">Second</option>
+    			<option value="third">Third</option>
+    			<option value="fourth">Fourth</option>
+    			<option value="fifth">Fifth</option>
+    		</select>
+    		</div>
+    		<div class="address">
+    		Postal Address:
+    		<!-- <input class="address_in" type="text"> -->
+    		<textarea class="address_in"></textarea>
+        </div>
+    		<div class="tnc_tick">
+    		<input class="check_tnc" type="checkbox"></div>
+    		<div class="tnc">I agree to the Terms and Conditions<br>
+    		(Sincere effort towards working will only be considered for certificates and prizes)
+    		</div>
+    		    <div class ="button">
+  		      <button class="register"	>REGISTER</button>
+  		    </div>
+  		  </div>
+      </div>
+    </div>
+
+		<div id = "contact_back">
+		<div id="contact">
+		<h3>CONTACT</h3>
+		<div class="icon">
+		<img class="icon" src="contact.png" alt = "contact">
+		</div>
+		<div class="contact1">
+		<div class="contact_head">
+		For more details contact :
+		</div>
+		<div class="contact_content">
+		<b>Swadesh Singh</b><br>
+		swadesh@moodi.org<br>
+		+919967345497<br><br>
+		<b>Udyut Goyal</b><br>
+		udyut@moodi.org<br>
+		+919967343197
+		</div></div>
+		<div class="icon">
+		<img class = "icon" src="address.png" alt = "address">
+		</div>
+		<div class="contact1">
+		<div class="contact_head">
+		Address:
+		</div>
+		<div class="contact_content">
+		Mood Indigo Office<br>
+		Student Activity Centre<br>
+		IIT Bombay, Powai<br>
+		400076
+		</div></div>
+		</div></div>
+
 </body>
 </html>
