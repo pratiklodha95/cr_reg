@@ -106,6 +106,7 @@ input{
 	text-align:center;
 	padding:5px;
 	width: 22%;
+	vertical-align: top;
 }
 .img2
 {
@@ -360,15 +361,93 @@ img.icon
 	.tab{
 		min-width: 24%;
 	}
-}
-@media (max-width: 400px)
-{
-	.tab{
-		min-width: 20%;
+	.name{
+		height: 20px;
+	}
+	.name_in{
+		position: static;
+		width: 100%;
+	}
+	.email{
+		width: 100%;
+		position: static;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+	}
+	.email_in
+	{
+		width: 100%;
+		position: static;
+	
+	}
+	.phone{
+		width: 100%;
+		position: static;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		padding: 10px;
+	}
+	.phone_in
+	{
+		width: 100%;
+		position: static;
+	}
+	.college_in
+	{
+		width:100%;
+		position: static;
+	}
+	.city{
+		display: inline-block;
+	}
+	.citydrop
+	{
+		position: absolute;
+		left:10px;
+	}
+	.year{
+		display: inline-block;
+	}
+	.yeardrop
+	{
+		position: absolute;
+		left:50%;
+	}
+	label{
+		display: none;
+	}
+	.address{
+		position: static;
+	}
+	.address_in
+	{
+		position: static;
+		margin-top: 25px;
+		width: 100%;
 	}
 }
-@media (max-width: 320px)
+@media (max-width: 470px)
 {
 	.tab{
-	}	
+		min-width:20%;
+	}
+	.contact1{
+		display: inline-block;
+		width: 70%;
+		text-align: left;
+	}
+	div.icon{
+		margin: 0 auto;
+		width: 10%;
+	}
+	#contact
+	{
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+	.contact_content
+	{
+		padding-bottom: 10%;
+	}
+	
 }

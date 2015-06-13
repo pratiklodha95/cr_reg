@@ -1,32 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
 	<title>College Representative Registration</title>
-	<meta name="fragment" content="!"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Mood Indigo 2014-15 - IIT Bombay : Asia's largest cultural festival held in December mumbai concert.">   
-	<meta name="keyword" content="cultural, asia,largest,concert ,festival,livewire, 180 events, competitions">
-	<meta name="author" content="pratik lodha, lodhapratik9@gmail.com"> 
-	<meta property="og:site_name" content="MoodIndigo" /> 
-	<meta property="og:title" content="Mood Indigo" /> 
-	<meta property="og:url" content="https://moodi.org/cr_reg" />
-	<meta property="og:description" content="" />
 	<link rel = "stylesheet" href = "style.css">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width"/>
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script type="text/javascript" src="java.js"></script>
 </head>
 <body>
   <script>
-  var access_token,fbid;
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
-    access_token=response.authResponse.accessToken;
-  	fbid=response.authResponse.userID;
     if (response.status === 'connected') {
       AutoFill();
     } else if (response.status === 'not_authorized') {
@@ -63,10 +48,10 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-
+  
   function AutoFill() {
     FB.api('/me', function(response) {
-  	
+      console.log(response);
       $('.form_wrapper').css({'display':'block'});
       $('.fblogin_wrapper').css({'display':'none'});
     });
@@ -136,7 +121,7 @@
 	<h3 class="incentives">INCENTIVES</h3>
 	<div class="box4">
 	<div class="img2">
-	<img class="img4" src="tshirt.png" alt = "tshirt">
+	<img class = "img4" src="tshirt.png" alt = "tshirt">
 	</div>
 	<div class="img2_text">
 	MI T-shirts
@@ -176,29 +161,29 @@
       </div>
       <div class="form_wrapper" style="display:none;">
     		<div class="name">
-    		Name:
-    		<input class="name_in" type = "text">
+    		<label>Name:</label>
+    		<input class="name_in" type = "text" placeholder="Name" required>
     		</div>
     		<div class="email">
-    		Email ID:
-    		<input class="email_in" type = "text">
+    		<label>Email ID:</label>
+    		<input class="email_in" type = "text" placeholder="Email ID" required>
     		</div>
     		<div class="phone">
-    		Phone No:
-    		<input class="phone_in" type = "number">
+    		<label>Phone No:</label>
+    		<input class="phone_in" type = "text" placeholder="Phone No." required>
     		</div>
     		<div class="college">
-    		College:
-    		<input class="college_in" type = "text">
+    		<label>College:</label>
+    		<input class="college_in" type = "text" placeholder="College" required>
     		</div>
     		<div class="city">
-    		City:
+    		<label>City:</label>
     		<select class="citydrop">
     			<option value="0">CITY</option>
     		</select>
     		</div>
     		<div class="year">
-    		Year of Study:
+    		<label>Year of Study:</label>
     		<select class="yeardrop">
     			<option value="first">First</option>
     			<option value="second">Second</option>
@@ -208,17 +193,17 @@
     		</select>
     		</div>
     		<div class="address">
-    		Postal Address:
+    		<label>Postal Address:</label>
     		<!-- <input class="address_in" type="text"> -->
-    		<textarea class="address_in"></textarea>
+    		<textarea class="address_in" placeholder="Postal Address"></textarea>
         </div>
     		<div class="tnc_tick">
-    		<input class="check_tnc" type="checkbox"></div>
+    		<input class="check_tnc" type="checkbox" value="accept"></div>
     		<div class="tnc">I agree to the Terms and Conditions<br>
     		(Sincere effort towards working will only be considered for certificates and prizes)
     		</div>
     		    <div class ="button">
-  		      <button class="register"	>REGISTER</button>
+  		      <button class="register">REGISTER</button>
   		    </div>
   		  </div>
       </div>
@@ -226,7 +211,7 @@
 
 		<div id = "contact_back">
 		<div id="contact">
-		<h3>CONTACT</h3>
+		<h3 class="contact_h">CONTACT</h3>
 		<div class="icon">
 		<img class="icon" src="contact.png" alt = "contact">
 		</div>
@@ -234,16 +219,17 @@
 		<div class="contact_head">
 		For more details contact :
 		</div>
-		<div class="contact_content">
-		<b>Swadesh Singh</b><br>
-		swadesh@moodi.org<br>
-		+919967345497<br><br>
-		<b>Udyut Goyal</b><br>
-		udyut@moodi.org<br>
-		+919967343197
-		</div></div>
+			<div class="contact_content">
+				<b>Swadesh Singh</b><br>
+				swadesh@moodi.org<br>
+				+919967345497<br><br>
+				<b>Udyut Goyal</b><br>
+				udyut@moodi.org<br>
+				+919967343197
+			</div>
+		</div>
 		<div class="icon">
-		<img class = "icon" src="address.png" alt = "address">
+			<img class = "icon" src="address.png" alt = "address">
 		</div>
 		<div class="contact1">
 		<div class="contact_head">
